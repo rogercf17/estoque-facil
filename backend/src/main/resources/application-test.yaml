@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    show-sql: false
+
+app:
+  jwt:
+    secret: segredo-somente-para-testes-com-mais-de-32-caracteres
+
+logging:
+  level:
+    root: WARN
+    br.com.demo: INFO
