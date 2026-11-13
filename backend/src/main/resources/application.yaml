@@ -30,6 +30,11 @@ management:
 app:
   jwt:
     secret: ${JWT_SECRET:}
+    expiration: &{JWT_EXPIRATION:8h}
+  admin:
+    name: ${ADMIN_NAME:Administrador}
+    email: ${ADMIN_EMAIL:}
+    password: ${ADMIN_PASSWORD:}
 
 server:
   port: 8080
