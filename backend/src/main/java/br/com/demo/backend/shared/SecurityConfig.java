@@ -10,10 +10,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-/**
- * Configuração mínima de segurança da Sprint 0: health e documentação públicos,
- * todo o resto exige autenticação. O login JWT entra na Sprint 1.
- */
 @Configuration
 public class SecurityConfig {
     @Bean
@@ -24,6 +20,7 @@ public class SecurityConfig {
                     s.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
                 })
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/v1/auth/login").permitAll()
                         .requestMatchers("/actuator/health/**", "/v3/api-docs/**",
                                 "/swagger-ui", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                         .anyRequest().authenticated())
